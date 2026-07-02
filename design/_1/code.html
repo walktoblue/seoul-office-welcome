@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusBridge - Welcome</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#d0e1fb",
+                    "tertiary-container": "#6b6e70",
+                    "secondary": "#505f76",
+                    "on-tertiary-container": "#eff1f3",
+                    "surface": "#f9f9ff",
+                    "primary-container": "#2563eb",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "outline-variant": "#c3c6d7",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#eeefff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container": "#e7eeff",
+                    "tertiary": "#525657",
+                    "on-primary-fixed": "#00174b",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#111c2d",
+                    "surface-variant": "#d8e3fb",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-dim": "#cfdaf2",
+                    "surface-container-highest": "#d8e3fb",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-surface-variant": "#434655",
+                    "surface-tint": "#0053db",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "outline": "#737686",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-container": "#54647a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "primary": "#004ac6",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-surface": "#111c2d",
+                    "background": "#f9f9ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#dee8ff",
+                    "inverse-surface": "#263143"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1024px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Prevent scroll bars during full-page display */
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface bg-background antialiased">
+<!-- Screen 1: Welcome Entry Page -->
+<main class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<!-- Full-bleed background with image from prompt -->
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIaXDQIERoP_LScfjiE1sPGmtYAPyVyHwZYd-H5HUEi9CMqqrCI10ayPYKO9GWYYRR65aU6HQ7ye89d3S-EcaI4l0tqvuHz6DqSy-gJUVNobrQ-J0-e9hOON46sf881cDZzFUuLHqArl4NqiB8Wl47QOYsxM4VCAPIqXytOvlRBtGYdEyk1-9FmmcrpdCuiawArfDLixCA_hAmlVmZXnLrHCX6FxBLCeF9-904-Cu1V6Bn7CawIzcEVDV2T_HonX5NhouuqEQKN84p"/>
+<!-- Dark overlay for legibility -->
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<!-- Centered White Card (Level 2: Popovers/Modals style logic but adapted for centering) -->
+<div class="relative z-10 w-full max-w-md mx-4 px-lg py-xl glass-card rounded-lg flex flex-col gap-lg">
+<!-- Branding/Heading -->
+<header class="text-center flex flex-col gap-sm">
+<div class="flex justify-center mb-sm">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-[32px]">school</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                    한동대학교 서울사무소<br/>근로학생 Welcome
+                </h1>
+<p class="font-body-md text-secondary text-sm">
+                    업무 시작을 위해 정보를 입력해 주세요
+                </p>
+</header>
+<!-- Input Fields Area -->
+<form class="flex flex-col gap-md" id="welcomeForm">
+<!-- Year & Semester Group -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant px-1" for="year">연도</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg bg-surface font-body-md input-focus-ring transition-all" id="year" max="2030" min="2020" placeholder="2024" type="number"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant px-1" for="semester">학기</label>
+<select class="w-full h-12 px-md border border-outline-variant rounded-lg bg-surface font-body-md input-focus-ring transition-all appearance-none cursor-pointer" id="semester">
+<option value="1">1학기</option>
+<option value="summer">여름</option>
+<option value="2">2학기</option>
+<option value="winter">겨울</option>
+</select>
+</div>
+</div>
+<!-- Student ID Select -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant px-1" for="student_id">학번 (입학연도)</label>
+<select class="w-full h-12 px-md border border-outline-variant rounded-lg bg-surface font-body-md input-focus-ring transition-all appearance-none cursor-pointer" id="student_id">
+<option value="">학번 선택</option>
+<option value="24">24학번</option>
+<option value="23">23학번</option>
+<option value="22">22학번</option>
+<option value="21">21학번</option>
+<option value="20">20학번</option>
+<option value="19">19학번</option>
+</select>
+</div>
+<!-- Name Input -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-on-surface-variant px-1" for="name">이름</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded-lg bg-surface font-body-md input-focus-ring transition-all" id="name" placeholder="이름을 입력하세요" type="text"/>
+</div>
+<!-- Primary Button -->
+<button class="mt-lg w-full h-14 bg-primary-container text-on-primary-container font-headline-md rounded-lg flex items-center justify-center gap-sm hover:brightness-110 active:scale-[0.98] transition-all" type="submit">
+                    시작하기
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<footer class="flex justify-center gap-lg border-t border-outline-variant pt-md">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors" href="#">시스템 도움말</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors" href="#">문의하기</a>
+</footer>
+</div>
+<!-- Subtle ambient effect -->
+<div class="absolute bottom-10 right-10 text-white/40 flex items-center gap-xs pointer-events-none">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="font-label-sm">Secure Portal Access</span>
+</div>
+</main>
+<script>
+        document.getElementById('welcomeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation feedback
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `<span class="animate-spin material-symbols-outlined">sync</span>`;
+            
+            setTimeout(() => {
+                alert('CampusBridge 온보딩 시스템에 오신 것을 환영합니다.');
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }, 800);
+        });
+
+        // Initialize year to current year
+        document.getElementById('year').value = new Date().getFullYear();
+    </script>
+</body></html>
