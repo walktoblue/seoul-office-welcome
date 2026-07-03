@@ -50,8 +50,8 @@
    - 디자인: design/_3/code.html
 
 4. **관리자 대시보드** — `/admin`
-   - 보임: "학생 현황" 탭(학생별 진행률 표, 1순위) / "업무 관리" 탭(업무별 설명 수정 + 신규 업무 추가)
-   - 동작: 학생 현황 표의 행을 클릭하면 해당 학생의 체크 상세를 본다. 업무 관리 탭에서 기존 업무 설명 수정·저장, 신규 업무 추가(소속 세션 hello/main/goodbye 선택 + 제목 + 설명 입력)
+   - 보임: "학생 현황" 탭(학생별 hello/main/good bye 세션별 진행률 표, 1순위) / "업무 관리" 탭(업무별 설명 수정 + 신규 업무 추가)
+   - 동작: 학생 현황 표에서 "자세히 보기"를 누르면 해당 학생의 hello/main/good bye별 업무 완료·미완료 상세를 본다. 업무 관리 탭에서 기존 업무 설명 수정·저장, 신규 업무 추가(소속 세션 hello/main/goodbye 선택 + 제목 + 설명 입력)
    - 데이터: 읽음: students, tasks, task_completions / 씀: tasks (수정·추가)
    - 상태: 로딩 · 학생 0명일 때 안내 · 저장 성공/실패 피드백
    - 디자인: design/_4/code.html
@@ -93,6 +93,6 @@ Next.js (App Router, TypeScript) · Tailwind CSS · shadcn/ui · Supabase · Ver
 - [x] 연결 (GitHub · Vercel · Supabase)
 - [x] 구현: 웰컴 입력
 - [x] 구현: 체크리스트
-- [ ] 구현: 관리자 로그인
-- [ ] 구현: 관리자 대시보드
+- [x] 구현: 관리자 로그인
+- [x] 구현: 관리자 대시보드
 - [ ] 배포 확인
