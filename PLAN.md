@@ -95,4 +95,4 @@ Next.js (App Router, TypeScript) · Tailwind CSS · shadcn/ui · Supabase · Ver
 - [x] 구현: 체크리스트
 - [x] 구현: 관리자 로그인
 - [x] 구현: 관리자 대시보드
-- [ ] 배포 확인
+- [x] 배포 확인

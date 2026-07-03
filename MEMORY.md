@@ -65,3 +65,38 @@
   한도 초과라고 명확히 말해주지 않고 "Cannot install more than one integration at a time"처럼
   모호하게 나온다 — `vercel integration ls`로 계정 전체를 훑어보는 게 원인 파악의 핵심이었다.
   다음은 구현 단계 — PLAN.md의 4개 화면을 Stitch 디자인대로 하나씩 만든다.
+
+### 2026-07-03 구현
+- **만든 화면**: 웰컴 입력(`/`) → 체크리스트(`/checklist`) → 관리자 로그인(`/admin/login`) →
+  관리자 대시보드(`/admin`), 4개 전부. Stitch 디자인의 레이아웃·요소·라벨은 그대로 따르되,
+  각 화면에 붙어 있던 제네릭 상단 내비게이션·사이드바(Status/Management/Settings 등 실제로
+  없는 메뉴)·풋터·플로팅 버튼은 PLAN.md에 없는 기능이라 빼고 핵심 콘텐츠만 구현했다.
+- **핵심 기술 결정**:
+  1. **학생 식별과 이어보기** — 로그인 없는 학생은 (연도, 학기, 학번, 이름) 조합을 유니크
+     키로 써서 같은 조합으로 다시 들어오면 기존 `students` row를 재사용하고 체크 상태를
+     그대로 불러온다. 체크 자체는 `task_completions`에 (student_id, task_id) unique row를
+     insert/delete하는 방식으로 토글해, 별도 `completed` boolean 컬럼 없이 "행이 있으면 완료"로
+     단순화했다.
+  2. **관리자 인증 = Supabase Auth, 화면엔 비밀번호만** — 로그인 화면 디자인이 비밀번호 입력칸
+     하나뿐이라, 이메일은 `admin@seoul-office-welcome.local`로 고정하고 Admin API
+     (`/auth/v1/admin/users`, service_role 키 사용)로 관리자 계정을 미리 하나 만들어 뒀다.
+     `tasks` 테이블 쓰기 정책은 `auth.role() = 'authenticated'`로 걸어서, 로그인 세션이 있는
+     브라우저만 업무 설명 수정·추가가 되게 했다 — 화면 라우팅으로 막는 것과 별개로 DB 단에서도
+     막힌다.
+  3. **RLS 정책을 데이터 성격별로 다르게** — `students`·`task_completions`는 로그인 없는
+     공개 체크리스트라 select/insert(그리고 completions는 delete까지)를 전부 열어 뒀고,
+     `tasks`는 select는 열되 insert/update만 인증 필요로 걸었다. 세 테이블 모두 RLS를 켜고
+     정책을 명시했다 — 하나라도 꺼져 있으면 Supabase가 프로젝트 URL만으로 read/write 가능
+     경고를 보낸다.
+- **막힌 점 / 바꾼 점**: 사용자가 확인하면서 요구사항이 두 번 바뀌었다. ① "매월초 출근시간표
+  제출하기"를 3개월 근무 기준 3개(1/2/3)로 나눠 달라고 해서, 기존 단일 task row와 거기 달린
+  completions를 지우고 sort_order를 2씩 밀어 새 3개 row를 끼워 넣는 마이그레이션
+  (`004_split_timesheet_task.sql`)을 새로 짰다. ② 관리자 대시보드의 "학생 현황"이 처음엔
+  전체 진행률 한 줄이었는데, hello/main/good bye 세션별로 나눠 보고 싶다는 요청에 진행률
+  계산 로직을 세션별 Map으로 바꿨고, 이어서 "어떤 업무를 안 했는지" 보고 싶다는 요청에
+  학생별 완료 task_id Set을 추가로 계산해 "자세히 보기" 다이얼로그(세션별 체크/미체크 아이콘
+  목록)를 붙였다. 둘 다 처음부터 데이터 구조(세션별 집계, task_id 단위 완료 여부)를 넉넉히
+  잡아뒀던 덕분에 큰 리팩터 없이 얹을 수 있었다.
+- **배운 것**: 체크리스트형 앱에서는 "완료 개수"만 미리 계산해두지 말고, 원본 완료
+  task_id 목록(Set)도 같이 들고 있는 게 낫다 — 나중에 "무엇을 안 했는지" 같은 상세 요청이
+  오면 집계값만으론 답할 수 없어서 다시 원본 데이터를 fetch해야 한다.
