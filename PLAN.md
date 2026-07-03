@@ -37,7 +37,7 @@
 
 2. **체크리스트** — `/checklist`
    - 보임: 상단 "0000년 여름 000님을 환영합니다"(1순위) → hello / main / good bye 탭 → 업무 목록(체크박스 + 설명 버튼)
-   - 동작: 각 업무 체크박스 클릭 시 완료 처리(완료 시각 저장). "설명" 버튼 클릭 시 해당 업무 설명을 팝업으로 표시. 기본 업무 목록(hello 8개·main 4개·goodbye 1개)은 구현 시 시드 데이터로 미리 등록해 둔다.
+   - 동작: 각 업무 체크박스 클릭 시 완료 처리(완료 시각 저장). "설명" 버튼 클릭 시 해당 업무 설명을 팝업으로 표시. 기본 업무 목록(hello 8개·main 6개[매월초 출근시간표 제출하기는 3개월분 3개로 분리]·goodbye 1개)은 구현 시 시드 데이터로 미리 등록해 둔다.
    - 데이터: 읽음: tasks, task_completions / 씀: task_completions
    - 상태: 로딩 스피너 · 업무 없을 때 "등록된 업무가 없습니다" 안내 · 체크 실패 시 오류 토스트
    - 디자인: design/_2/code.html
@@ -92,7 +92,7 @@ Next.js (App Router, TypeScript) · Tailwind CSS · shadcn/ui · Supabase · Ver
 - [x] Stitch 프로토타입
 - [x] 연결 (GitHub · Vercel · Supabase)
 - [x] 구현: 웰컴 입력
-- [ ] 구현: 체크리스트
+- [x] 구현: 체크리스트
 - [ ] 구현: 관리자 로그인
 - [ ] 구현: 관리자 대시보드
 - [ ] 배포 확인
